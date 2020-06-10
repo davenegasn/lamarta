@@ -3,17 +3,39 @@ $body-bg: #f8fafc;
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
-$font-size-base: 0.9rem;
+$font-size-base: 1rem;
 $line-height-base: 1.6;
 
 // Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66d9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+$brandColor:#f3ab23;
+$lightGray: #f1f1f1;
+$light: #fff;
+$dark: #121315;
+$black: #000;
+$softblack: #090909;
+
+// Shadows
+$boxMainShadow: 0 2px 5px 0 rgba(0,0,0,.11);
+
+//Breakpoints
+@mixin breakpoint($class) {
+  @if $class == xs {
+    @media (max-width: 350px) { @content; }
+  }
+ 
+  @else if $class == sm {
+    @media (min-width: 768px) { @content; }
+  }
+ 
+  @else if $class == md {
+    @media (min-width: 992px) { @content; }
+  }
+ 
+  @else if $class == lg {
+    @media (min-width: 1200px) { @content; }
+  }
+ 
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  }
+}

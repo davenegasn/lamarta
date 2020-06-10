@@ -17,6 +17,21 @@ class CategoryController extends Controller
         //
     }
 
+    public function upsert(Request $request)
+    {
+
+        $categories = $request->post('categories');
+        
+        foreach($categories as $cat){
+            if ( $cat['id'] ){
+                Category::where('id', $cat['id'])->update($cat);
+            }else{
+                Category::create($cat);
+            }
+        }
+        return ['success' => true, 'categories' => Category::all()];
+
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -24,7 +39,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+       return view('admin.categories.create');
     }
 
     /**
@@ -35,7 +50,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $attributes = $this->validateCategory();
+
+        Category::create($attributes);
+
+        return redirect()->route('categories');
     }
 
     /**
@@ -57,7 +77,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -69,7 +89,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+
+        $attributes = $this->validateCategory();
+
+        $category->update($attributes);
+
+        return redirect()->route('categories');
+
     }
 
     /**
@@ -80,6 +106,41 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return ['success' => true];
     }
+
+    /**
+     * Display admin page for categories
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function admin()
+    {
+
+        $headings = array('ID', 'Nombre', 'Orden', 'Slug');
+
+        $items = Category::orderBy('display_order')->get(['id', 'name', 'display_order', 'slug'])->toArray();
+
+        return view('admin.categories.index', compact('headings', 'items'));
+    }
+
+    protected function validateCategory()
+    {
+        $attributes = request()->validate([
+            'name'          => ['string', 'required', 'max:255'],
+            'description'   => ['string', 'required', 'max:455'],
+            'slug'          => ['string', 'required'],
+            'image'         => ['file'],
+            'display_order' => ['integer', 'required'],
+        ]);
+
+        if(request('image')){
+            $attributes['image'] = request('image')->store('products');
+        }
+
+        return $attributes;
+
+    }
+
 }
