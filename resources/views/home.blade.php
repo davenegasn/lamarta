@@ -65,7 +65,7 @@
 
 			<div class="d-flex row">
 
-				<div class="align-self-center col-md-6">
+				<div class="align-self-center col-md-6 store-info">
 
 					<h2 class="text-white mb-4 py-2 half-border left light border-small">
 						Dónde encontrarnos
@@ -95,7 +95,7 @@
 
 					<div class="d-flex justify-content-between text-white" >
 						<span>Festivos</span>
-						<span>Consultar</span>
+						<span>Consultar: masas@lamarta.cl</span>
 					</div><!-- /flex -->
 
 				</div><!-- /col-6 -->

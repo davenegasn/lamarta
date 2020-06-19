@@ -20,7 +20,7 @@ $boxMainShadow: 0 2px 5px 0 rgba(0,0,0,.11);
 //Breakpoints
 @mixin breakpoint($class) {
   @if $class == xs {
-    @media (max-width: 350px) { @content; }
+    @media (max-width: 576px) { @content; }
   }
  
   @else if $class == sm {

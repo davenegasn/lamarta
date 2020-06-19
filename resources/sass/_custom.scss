@@ -229,6 +229,12 @@ body{
 				max-width: 400px;
 				margin: 0 auto;
 			}
+			.col-md-3{
+				@include breakpoint(xs) {
+					margin-bottom:20px;
+				}
+			}
+
 			.thumb-container{
 
 				height:200px;
@@ -261,12 +267,25 @@ body{
 	}
 
 	.home-info{
+
 		background-image: url("/images/black_bg_home.jpg"); 
 		background-size:cover;
 		background-position:top center;
 		background-attachment: fixed;
 
+		.store-info{
+			@include breakpoint(xs) {
+				margin-bottom:20px;
+			}
+			h2{
+				@include breakpoint(xs) {
+					text-align:center;
+				}	
+			}
+		}
+
 		.map-overlay{
+
 			position:relative;
 
 			
@@ -330,6 +349,7 @@ body{
 			padding-top:50px;
 		}
 		.product{
+
 			box-shadow: 0 2px 4px rgba(50,50,93,.1);
 			background-color:$light;
 			
@@ -354,6 +374,12 @@ body{
 				}
 				img{
 					transition: all .3s ease;
+
+					@include breakpoint(xs){
+						display:block;
+						margin:0 auto;
+					}
+
 				}
 				img:hover{
 					transform: scale(1.2);
@@ -392,6 +418,45 @@ body{
 			background-image: url("/images/prices.jpg"); 
 		}
 		
+		
+	}
+
+	.single-product{
+
+		img{
+			@include breakpoint(xs){
+				display:block;
+				margin:0 auto;
+			}
+		}
+		.product-info{
+
+			background-color: rgb(255, 255, 255);
+			box-shadow: rgba(0, 0, 0, 0.11) 0px 2px 5px 0px;
+			padding: 10px;
+
+			h2{
+				@include breakpoint(xs){
+					text-align:center;
+				}
+			}
+			span{
+
+				color: rgb(243, 171, 35);
+				text-decoration: underline;
+
+				@include breakpoint(xs){
+					display:block;
+					text-align:center;
+				}
+			}
+		}
+
+		h4{
+			@include breakpoint(xs){
+				text-align:center;
+			}
+		}
 		
 	}
 

@@ -2,7 +2,7 @@
 
 @section('title', 'Catálogo')
 
-<div class="container catalog">
+<div class="container catalog single-product">
 
 	<div class="row">
 

@@ -21,7 +21,9 @@
 
         <ul v-show="isOpen">
             <li v-for="result in results" :key="result.id">
-                <a :href="result.slug">{{result.title}} | {{ result.short_description }}</a>
+                <a :href="productPermalink(result)">
+                    {{result.title}} | {{ result.short_description }}
+                </a>
             </li>
         </ul>
     </div>
@@ -52,6 +54,9 @@ export default {
             })
             .then(response => this.results = response.data)
             .then(this.spinner = false);
+        },
+        productPermalink(product){
+            console.log(product);
         }
     }
 }

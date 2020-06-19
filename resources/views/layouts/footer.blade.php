@@ -8,6 +8,7 @@
 				 <img 
 			        src="{{ asset('images/logo_white_simple.png') }}" 
 			        class="logo img img-fluid" alt="Masas La Marta">
+			        <p class="text-center text-white">masas@lamarta.cl</p>
 			</div><!-- /col-md-3 -->
 
 			<div class="col-md-3 col-sm-12 align-items-center">
@@ -53,6 +54,7 @@
 					Nuestra Ubicación
 				</h3>
 				<p class="text-white m-0">Estamos ubicados en Av. Grecia 5616, Peñalolén</p>
+
 			</div><!-- /col-md-3 -->
 
 		</div><!-- /row -->
