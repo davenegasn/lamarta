@@ -39,11 +39,13 @@
 				<div class="d-flex text-white">
 					<span>Lunes a Viernes</span> <span>09:00 a 19:00</span>
 				</div>
-				<div class="d-flex text-white">
-					<span>Sábados</span> <span>09:00 a 14:00</span>
-				</div>
+				
 				<div class="d-flex text-white">
 					<span>Teléfono</span> <span>23 269 9052</span>
+				</div>
+
+				<div class="d-flex text-white">
+					<span>Febrero</span> <span>Cerrado</span>
 				</div>
 				
 			</div><!-- /col-md-3 -->
